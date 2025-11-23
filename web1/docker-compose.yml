@@ -1,0 +1,15 @@
+services:
+  web:
+    build:
+      context: .
+    container_name: game-warrior
+    image: game-warrior:latest
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - game-warrior:/usr/local/apache2/htdocs/
+
+volumes:
+  game-warrior:
+    name: game-warrior

@@ -1,0 +1,14 @@
+# Imatge base oficial d’Apache
+FROM httpd:latest
+
+# Establece el directorio base para cualquier comando posterior
+WORKDIR /usr/local/apache2/htdocs
+
+# Copia la web al directorio público de Apache
+COPY ./game-warrior/ .
+
+# Declarar el volumen para persistencia (volum anònim)
+# Actualment no s’està utilitzant un volum dintre del dockerfile sinó des al docker-compose.yml
+VOLUME ["/usr/local/apache2/htdocs"]
+
+EXPOSE 80

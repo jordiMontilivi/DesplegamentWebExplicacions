@@ -1,0 +1,16 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.anime
+    container_name: anime-web
+    image: anime:latest
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - anime:/usr/local/apache2/htdocs/
+
+volumes:
+  anime:
+    name: anime
